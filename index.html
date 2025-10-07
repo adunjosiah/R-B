@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
         <link rel="stylesheet" href="css/leaflet.photon.css">
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
         <style>
         html, body, #map {
             width: 100%;
@@ -142,7 +143,7 @@
                 },
                 mouseover: highlightFeature,
             });
-            var popupContent = '<table>\
+            var popupContent = '<div style="font-family:Montserrat, sans-serif;">' + '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
                         <td class="visible-with-data" id="Name">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
