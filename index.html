@@ -19,12 +19,58 @@
             padding: 0;
             margin: 0;
         }
+		#uber-button {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            width: 150px;
+            height: 30px;
+            background-color: rgb(51, 51, 51);
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 15px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-family:Montserrat, sans-serif;
+            border-radius: 10px;
+        }
+        
+        #uber-button:hover {
+            opacity: 0.8;
+        }
+        
+        #uber-button::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 100px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(0, 0, 0);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0s;
+            margin-bottom: 5px;
+        }
+        
+        #uber-button:hover::after {
+            opacity: 1;
+        }
         </style>
         <title></title>
     </head>
     <body>
         <div id="map">
         </div>
+		<a id="uber-button" href="https://forms.gle/DE63yfDW9k6J1CLeA" target="_blank" title="Tell us what you think">Share Feedback</a>
         <script src="js/qgis2web_expressions.js"></script>
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
@@ -57,7 +103,7 @@
             zoomControl:false, maxZoom:28, minZoom:1
         }).fitBounds([[6.402076890657036,3.298607298487512],[6.624627545305334,3.6368456097386344]]);
         var hash = new L.Hash(map);
-        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank"></a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps"></a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         // remove popup's row if "visible-with-data"
         function removeEmptyRowsFromPopupContent(content, feature) {
